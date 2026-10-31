@@ -1,0 +1,61 @@
+{
+  "_nota": "Proyecto de ejemplo (promo Padel Organizer, voz Achird). Rutas relativas a este archivo.",
+  "salida": "salida/promo.mp4",
+  "capturas_dir": "capturas",
+  "logo": "logo.jpg",
+  "colores": { "primario": "#2FA84F", "acento": "#F7B150", "oscuro": "#1D6E36" },
+  "bpm": 124,
+  "musica": true,
+
+  "capturas": [
+    { "nombre": "01_calendario", "url": "https://www.torneosfapoficial.com.ar/api/app_calendario.php", "espera": 6000 },
+    { "nombre": "03_grilla", "url": "https://www.torneosfapoficial.com.ar/api/app_torneos_horarios.php?idevento=696&idtorneo=0", "espera": 8000 },
+    { "nombre": "04_zonas", "url": "https://www.torneosfapoficial.com.ar/api/app_zonas.php?idevento=696&idtorneo=3908", "espera": 6000 },
+    { "nombre": "05_llaves", "url": "https://www.torneosfapoficial.com.ar/api/app_fixture.php?idevento=696&idtorneo=3908", "espera": 6000 },
+    { "nombre": "06_fotos", "url": "https://www.torneosfapoficial.com.ar/fotos.php", "espera": 25000 }
+  ],
+
+  "guion": [
+    { "id": "f1", "texto": "¿Organizás torneos de pádel?" },
+    { "id": "f2", "texto": "Con Pádel Organizer, todo el torneo en el celu." },
+    { "id": "f3", "texto": "Grilla en vivo, zonas y llaves, al toque." },
+    { "id": "f4", "texto": "Cada jugador encuentra su foto y la comparte." },
+    { "id": "f5", "texto": "Inscripción y pago online, y soporte de verdad." },
+    { "id": "f5b", "texto": "Más de quince años de experiencia en el rubro." },
+    { "id": "f5c", "texto": "Elegido por las principales asociaciones del país." },
+    { "id": "f6", "texto": "No somos los nuevos: somos los que ya están jugando." },
+    { "id": "f7", "texto": "Pádel Organizer." }
+  ],
+
+  "voz": {
+    "dir": "voz",
+    "modelo": "gemini-3.8-flash-tts",
+    "candidatas": ["Achird", "Puck", "Fenrir"],
+    "estilo": "locutor argentino de Buenos Aires, acento rioplatense bien marcado, tono canchero y copado, con energía y una sonrisa, ritmo ágil de publicidad para redes, natural y cercano, como hablándole a un amigo; nada robótico. Pausa breve entre cada frase."
+  },
+
+  "escenas": [
+    { "frase": "f1", "tipo": "texto", "lineas": [
+        { "t": "¿Organizás", "tam": "grande" },
+        { "t": "torneos", "tam": "gigante", "color": "acento" },
+        { "t": "de pádel?", "tam": "grande" } ], "ritmo": 0.4 },
+    { "frase": "f2", "tipo": "telefono", "captura": "01_calendario_largo", "logo_arriba": true,
+      "pill": "Todo el torneo en el celu" },
+    { "frase": "f3", "tipo": "rafaga", "pill_final": "al toque", "items": [
+        { "captura": "03_grilla_largo", "etiqueta": "GRILLA EN VIVO" },
+        { "captura": "04_zonas_largo", "etiqueta": "ZONAS" },
+        { "captura": "05_llaves", "etiqueta": "LLAVES", "scroll": false, "alto_max": 1500 } ] },
+    { "frase": "f4", "tipo": "telefono", "captura": "06_fotos_largo", "titulo": [
+        { "t": "Encontrá tu foto" }, { "t": "y compartila", "color": "acento" } ] },
+    { "frase": "f5", "tipo": "chips", "items": ["Inscripción online", "Pago con Mercado Pago", "Soporte de verdad"] },
+    { "frase": "f5b", "tipo": "contador", "numero": 15, "prefijo": "+", "lineas": ["años de experiencia", "en el rubro"] },
+    { "frase": "f5c", "tipo": "medalla", "lineas": [
+        { "t": "Elegido por" }, { "t": "las principales", "color": "acento" },
+        { "t": "asociaciones del país", "color": "acento" } ] },
+    { "frase": "f6", "tipo": "texto", "lineas": [
+        { "t": "No somos", "tam": "grande" }, { "t": "los nuevos.", "tam": "grande" },
+        { "t": "Somos los que", "tam": "medio", "color": "acento", "en": 1.05, "espacio": 70 },
+        { "t": "ya están jugando.", "tam": "medio", "color": "acento", "en": 1.45 } ] },
+    { "frase": "f7", "tipo": "cierre", "tagline": "+15 años en la cancha.", "url": "padelorganizer.com.ar" }
+  ]
+}
